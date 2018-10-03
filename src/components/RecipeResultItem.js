@@ -14,7 +14,7 @@ class RecipeResultItem extends React.Component{
                     {this.props.recipe.healthLabels.map(label => <li key={label + this.props.recipe.label}>{label}</li>)}
                 </ul>
                 <img className="recipe__result__item__image" src={this.props.recipe.image}/>
-                <a href={this.props.recipe.url}>Source: {this.props.recipe.source}</a>
+                <a href={this.props.recipe.url}>Full recipe available at: {this.props.recipe.source}</a>
             </div>
         )
     }

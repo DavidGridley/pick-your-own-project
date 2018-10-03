@@ -1,5 +1,6 @@
 //https://api.edamam.com/search?q=tofu&app_id=80413428&app_key=00e1dca10b9bc769bff3c70b22b658fa
 import React from "react";
+import RecipeSearchFilters from "./RecipeSearchFilters";
 
 class RecipeSearch extends React.Component {
   constructor() {
@@ -32,6 +33,12 @@ class RecipeSearch extends React.Component {
             Search
           </button>
         </form>
+        <RecipeSearchFilters
+          healthFilters={this.props.healthFilters}
+          dietFilters={this.props.dietFilters}
+          receiveHealthFilters={this.props.receiveHealthFilters}
+          receiveDietFilters={this.props.receiveDietFilters}
+        />
       </div>
     );
   }
