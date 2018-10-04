@@ -15,6 +15,9 @@ class RecipeSearchFilters extends React.Component {
         this.props.receiveDietFilters(event.target.id);
       } else if (event.target.className === "search__filters__diet__checkbox" && event.target.checked === false) {
         this.props.receiveRemoveDietFilter(event.target.id);
+      } else if (event.target.className === "search__filters__apply") {
+        this.props.receiveApplyFilters();
+        console.log("bang");
       }
   }
 
@@ -22,7 +25,7 @@ class RecipeSearchFilters extends React.Component {
   render() {
     return (
       <div className={this.props.classes}>
-        <div>
+        <div className="recipe__search__filters">
           {this.props.healthFilters.map(item => (
             <React.Fragment key={item.label}>
               <label>{item.label}</label> <input id={item.apiTerm} onClick={this.handleClick} className="search__filters__health__checkbox" type="checkbox" />
@@ -33,7 +36,7 @@ class RecipeSearchFilters extends React.Component {
               <label>{item.label}</label> <input id={item.apiTerm} onClick={this.handleClick} className="search__filters__diet__checkbox" type="checkbox" />
             </React.Fragment>
           ))}
-          <button className="search__filters__apply">Apply Filters</button>
+          <button onClick={this.handleClick} className="search__filters__apply">Apply Filters</button>
         </div>
       </div>
     );

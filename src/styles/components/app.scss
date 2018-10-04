@@ -1,11 +1,134 @@
+html,
 body {
-  background-color: whitesmoke;
+  padding: 0;
+  margin: 0;
 }
 
-.--visible {
+body {
+  background-color: whitesmoke;
+  font-family: "Bitter", serif;
+  color: #143642;
+}
+
+.header {
   display: flex;
+  flex-direction: column;
+  background-color: #b3efb2;
+}
+
+.header__title {
+  display: flex;
+  justify-content: center;
+  font-family: "Dancing Script", cursive;
+  font-size: 5em;
+}
+
+.header__sub-title {
+  display: flex;
+  justify-content: center;
+  font-size: 0.8em;
+}
+
+.recipe__search {
+  display: flex;
+  flex-direction: row;
+  width: 100vw;
+}
+
+.recipe__search__form {
+  width: 80vw;
+  display: flex;
+  flex-wrap: wrap;
+  .recipe__search__input {
+    width: 60vw;
+  }
+  .recipe__search__button {
+    width: 20vw;
+    height: 100%;
+    background-color: #e8f1f2;
+    &:hover {
+      background-color: #7a9e7e;
+    }
+  }
+}
+
+.search__filters__show{
+  width: 20vw;
+  flex-wrap: wrap;
+  background-color: #e8f1f2;
+  &:hover {
+    background-color: #7a9e7e;
+  }
+}
+
+.search__filters--visible {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+}
+
+.recipe__search__filters {
+  width: 100vw;
+  background-color: #7a9e7e;
+  border: 1px solid #143642;
+  position: relative;
+  color: #e8f1f2;
 }
 
 .--notVisible {
   display: none;
+}
+
+.recipe__results{
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.recipe__result__item {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+  background-color: #b3efb2;
+  margin: 10px 30px 10px 30px;
+  padding: 10px 0px 10px 0px;
+  border: 1px dashed #143642;
+  width: 70vw;
+
+
+  .recipe__result__item__image{
+    width: 50vw;
+  }
+
+  .recipe__result__item__title {
+    font-size: 1.2em;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    margin-top: 10px
+  }
+  
+  .recipe__result__item__labels {
+    list-style: none;
+    font-size: 0.9em;
+    color: #3b5058;
+    display: flex;
+    padding-left: 5px;
+    flex-wrap: wrap;
+    justify-content: center;
+
+    .recipe__result__item__individual-label{
+      display: flex;
+      padding-left: 10px;
+      padding-right: 10px;
+      justify-content: center;
+      margin: 5px 5px 5px 5px;
+      border-radius: 4px;
+      flex-wrap: wrap;
+      background-color: #e8f1f2;
+    }
+  }
+
 }

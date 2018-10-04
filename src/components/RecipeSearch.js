@@ -61,6 +61,7 @@ class RecipeSearch extends React.Component {
           receiveRemoveHealthFilter={this.props.receiveRemoveHealthFilter}
           receiveRemoveDietFilter={this.props.receiveRemoveDietFilter}
           classes={classes}
+          receiveApplyFilters={this.props.receiveApplyFilters}
         />
       </div>
     );

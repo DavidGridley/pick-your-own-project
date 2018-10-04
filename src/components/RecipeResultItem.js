@@ -1,28 +1,34 @@
-import React from 'react';
+import React from "react";
 
-class RecipeResultItem extends React.Component{
-    constructor() {
-        super();
-    }
+class RecipeResultItem extends React.Component {
+  constructor() {
+    super();
+  }
 
-    render(){
-
-        return(
-            <div className="recipe__result__item">
-                <h2 className="recipe__result__item__title">{this.props.recipe.label}</h2>
-                <ul className="recipe__result__item__labels">
-                    {this.props.recipe.healthLabels.map(label => <li key={label + this.props.recipe.label}>{label}</li>)}
-                </ul>
-                <img className="recipe__result__item__image" src={this.props.recipe.image}/>
-                <a href={this.props.recipe.url}>Full recipe available at: {this.props.recipe.source}</a>
-            </div>
-        )
-    }
+  render() {
+    return (
+      <div className="recipe__result__item">
+        <img
+          className="recipe__result__item__image"
+          src={this.props.recipe.image}
+        />
+        <h2 className="recipe__result__item__title">
+          {this.props.recipe.label}
+        </h2>
+        <ul className="recipe__result__item__labels">
+          {this.props.recipe.healthLabels.map(label => (
+            <li className="recipe__result__item__individual-label" key={label + this.props.recipe.label}>{label}</li>
+          ))}
+        </ul>
+        <a href={this.props.recipe.url}>
+          Full recipe available at: {this.props.recipe.source}
+        </a>
+      </div>
+    );
+  }
 }
 
-
 export default RecipeResultItem;
-
 
 /* calories: 4061.8974052925732
 cautions: (2) ["Eggs", "Milk"]
