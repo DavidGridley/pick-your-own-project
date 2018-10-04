@@ -1,0 +1,109 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`App matches the snapshot 1`] = `
+<div
+  className="app"
+>
+  <div
+    className="recipe__search"
+  >
+    <form
+      className="recipe__search__form"
+      onSubmit={[Function]}
+    >
+      <input
+        className="recipe__search__input"
+        onChange={[Function]}
+        placeholder="Search for your meal"
+        type="text"
+        value=""
+      />
+      <button
+        className="recipe__search__button"
+        type="submit"
+      >
+        Search
+      </button>
+    </form>
+    <button
+      className="search__filters__show"
+    >
+      Filters
+    </button>
+    <div
+      className="search__filters"
+    >
+      <div>
+        <label>
+          Gluten free
+        </label>
+         
+        <input
+          className="search__filters__health__checkbox"
+          id="gluten-free"
+          onClick={[Function]}
+          type="checkbox"
+        />
+        <label>
+          Paleo
+        </label>
+         
+        <input
+          className="search__filters__health__checkbox"
+          id="paleo"
+          onClick={[Function]}
+          type="checkbox"
+        />
+        <label>
+          Vegetarian
+        </label>
+         
+        <input
+          className="search__filters__health__checkbox"
+          id="vegetarian"
+          onClick={[Function]}
+          type="checkbox"
+        />
+        <label>
+          Vegan
+        </label>
+         
+        <input
+          className="search__filters__health__checkbox"
+          id="vegan"
+          onClick={[Function]}
+          type="checkbox"
+        />
+        <label>
+          Low carb
+        </label>
+         
+        <input
+          className="search__filters__diet__checkbox"
+          id="low-carb"
+          onClick={[Function]}
+          type="checkbox"
+        />
+        <label>
+          High protein
+        </label>
+         
+        <input
+          className="search__filters__diet__checkbox"
+          id="high-protein"
+          onClick={[Function]}
+          type="checkbox"
+        />
+        <button
+          className="search__filters__apply"
+        >
+          Apply Filters
+        </button>
+      </div>
+    </div>
+  </div>
+  <div
+    className="recipe__results"
+  />
+</div>
+`;

@@ -1,12 +1,18 @@
 //https://api.edamam.com/search?q=tofu&app_id=80413428&app_key=00e1dca10b9bc769bff3c70b22b658fa
 import React from "react";
 import RecipeSearchFilters from "./RecipeSearchFilters";
+import cx from "classnames";
 
 class RecipeSearch extends React.Component {
   constructor() {
     super();
     this.handleChange = this.handleChange.bind(this);
     this.handleSubmit = this.handleSubmit.bind(this);
+    this.handleClick = this.handleClick.bind(this);
+
+    this.state = {
+      clicked: false
+    }
   }
 
   handleChange(event) {
@@ -18,7 +24,18 @@ class RecipeSearch extends React.Component {
     this.props.receiveSubmit();
   }
 
+  handleClick() {
+    this.setState({
+      clicked: !this.state.clicked
+    })
+  }
+
   render() {
+    const classes = cx("search__filters", {
+      "--visible": this.state.clicked,
+      "--notVisible": !this.state.clicked
+    } )
+
     return (
       <div className="recipe__search">
         <form className="recipe__search__form" onSubmit={this.handleSubmit}>
@@ -33,11 +50,17 @@ class RecipeSearch extends React.Component {
             Search
           </button>
         </form>
+        <button onClick={this.handleClick} className="search__filters__show">
+          Filters
+        </button>
         <RecipeSearchFilters
           healthFilters={this.props.healthFilters}
           dietFilters={this.props.dietFilters}
           receiveHealthFilters={this.props.receiveHealthFilters}
           receiveDietFilters={this.props.receiveDietFilters}
+          receiveRemoveHealthFilter={this.props.receiveRemoveHealthFilter}
+          receiveRemoveDietFilter={this.props.receiveRemoveDietFilter}
+          classes={classes}
         />
       </div>
     );

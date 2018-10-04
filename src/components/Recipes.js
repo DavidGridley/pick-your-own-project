@@ -10,24 +10,22 @@ class Recipes extends React.Component {
     this.receiveSubmit = this.receiveSubmit.bind(this);
     this.receiveHealthFilters = this.receiveHealthFilters.bind(this);
     this.receiveDietFilters = this.receiveDietFilters.bind(this);
+    this.receiveRemoveHealthFilter = this.receiveRemoveHealthFilter.bind(this);
+    this.receiveRemoveDietFilter = this.receiveRemoveDietFilter.bind(this);
     this.state = {
       searchTerm: "",
       healthFilterArray: [],
       dietFilterArray: [],
       recipeArray: [],
       healthFilters: [
-        { label: "Dairy free", apiTerm: "dairy-free" },
-        { label: "Egg free", apiTerm: "egg-free" },
         { label: "Gluten free", apiTerm: "gluten-free" },
-        { label: "Low sugar", apiTerm: "low-sugar" },
         { label: "Paleo", apiTerm: "paleo" },
         { label: "Vegetarian", apiTerm: "vegetarian" },
         { label: "Vegan", apiTerm: "vegan" }
       ],
       dietFilters: [
         { label: "Low carb", apiTerm: "low-carb" },
-        { label: "High protein", apiTerm: "high-protein" },
-        { label: "Low fat", apiTerm: "low-fat" }
+        { label: "High protein", apiTerm: "high-protein" }
       ]
     };
   }
@@ -49,8 +47,8 @@ class Recipes extends React.Component {
   }
 
   receiveSubmit() {
-    const healthFilters = this.state.healthFilterArray.map(filter => `health=${filter}`).join('&');
-    const dietFilters = this.state.dietFilterArray.map(filter => `diet=${filter}`).join('&');
+    const healthFilters = this.state.healthFilterArray.map(filter => `&health=${filter}`).join('');
+    const dietFilters = this.state.dietFilterArray.map(filter => `&diet=${filter}`).join('');
     this.fetchRecipes(
       `https://api.edamam.com/search?q=${this.state.searchTerm}${healthFilters}${dietFilters}&app_id=80413428&app_key=00e1dca10b9bc769bff3c70b22b658fa`
     );
@@ -62,10 +60,26 @@ class Recipes extends React.Component {
       })
   }
 
+  receiveRemoveHealthFilter(filter){
+    const filterToBeRemoved = this.state.healthFilterArray;
+    filterToBeRemoved.splice(this.state.healthFilterArray.indexOf(filter), 1);
+    this.setState({
+      healthFilterArray: filterToBeRemoved
+    })
+  }
+
   receiveDietFilters(filter){
     this.setState({
         dietFilterArray: this.state.dietFilterArray.concat([filter])
       })
+  }
+
+  receiveRemoveDietFilter(filter){
+    const filterToBeRemoved = this.state.dietFilterArray;
+    filterToBeRemoved.splice(this.state.dietFilterArray.indexOf(filter), 1);
+    this.setState({
+      dietFilterArray: filterToBeRemoved
+    })
   }
 
   render() {
@@ -79,6 +93,8 @@ class Recipes extends React.Component {
           dietFilters={this.state.dietFilters}
           receiveHealthFilters={this.receiveHealthFilters}
           receiveDietFilters={this.receiveDietFilters}
+          receiveRemoveHealthFilter={this.receiveRemoveHealthFilter}
+          receiveRemoveDietFilter={this.receiveRemoveDietFilter}
         />
         <RecipeResults recipeArray={this.state.recipeArray} />
       </React.Fragment>
