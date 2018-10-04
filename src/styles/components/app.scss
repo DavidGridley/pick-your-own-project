@@ -8,10 +8,13 @@ body {
   background-color: whitesmoke;
   font-family: "Bitter", serif;
   color: #143642;
+  min-height: 100vh;
+  position: relative;
 }
 
 .header {
   display: flex;
+  position: sticky;
   flex-direction: column;
   background-color: #b3efb2;
 }
@@ -33,6 +36,7 @@ body {
   display: flex;
   flex-direction: row;
   width: 100vw;
+  position: relative;
 }
 
 .recipe__search__form {
@@ -65,6 +69,9 @@ body {
   display: flex;
   flex-direction: row;
   flex-wrap: wrap;
+  position: absolute;
+  left: 0;
+  top: 1.9em;
 }
 
 .recipe__search__filters {
@@ -73,9 +80,22 @@ body {
   border: 1px solid #143642;
   position: relative;
   color: #e8f1f2;
+  display: flex;
+  flex-wrap: wrap;
+
+  .recipe__individual__filter{
+    padding-left: 10px;
+  }
+
+  .search__filters__apply{
+    display: flex;
+    justify-self: flex-end;
+    align-self: flex-end;
+    
+  }
 }
 
-.--notVisible {
+.search__filters--notVisible {
   display: none;
 }
 
@@ -83,6 +103,7 @@ body {
   display: flex;
   flex-direction: column;
   justify-content: center;
+  align-items: center;
 }
 
 .recipe__result__item {
@@ -91,15 +112,16 @@ body {
   justify-content: center;
   align-items: center;
   position: relative;
-  background-color: #b3efb2;
   margin: 10px 30px 10px 30px;
   padding: 10px 0px 10px 0px;
   border: 1px dashed #143642;
-  width: 70vw;
+  border-radius: 6px;
+  width: 80vw;
 
 
   .recipe__result__item__image{
-    width: 50vw;
+    width: 95%;
+    transition: 0.5s;
   }
 
   .recipe__result__item__title {
@@ -107,7 +129,8 @@ body {
     display: flex;
     flex-direction: column;
     justify-content: center;
-    margin-top: 10px
+    margin-top: 10px;
+    margin-left: 15px;
   }
   
   .recipe__result__item__labels {
@@ -129,6 +152,51 @@ body {
       flex-wrap: wrap;
       background-color: #e8f1f2;
     }
+  
+  }
+  .recipe__result__item__link {
+    margin-top: 10px;
+    display: flex;
+    justify-content: center;
+    align-content: center;
+    flex-wrap: wrap;
+    color: #7a9e7e;
+    &:hover {
+      color: #3b5058;
+    }
   }
 
+}
+
+.recipe__result__ingredients__button {
+  background-color: #e8f1f2;
+    &:hover {
+      background-color: #7a9e7e;
+    }
+}
+
+.recipe__result__ingredients__list {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-content: center;
+  padding-left: 10px;
+  padding-bottom: 5px;
+}
+
+.--noShow {
+  display:none;
+}
+
+.pages {
+  width: 100vw;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  position: relative;
+  bottom: 0;
+}
+
+.pages__tablet__desktop {
+  display: none;
 }

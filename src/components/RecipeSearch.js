@@ -32,8 +32,8 @@ class RecipeSearch extends React.Component {
 
   render() {
     const classes = cx("search__filters", {
-      "--visible": this.state.clicked,
-      "--notVisible": !this.state.clicked
+      "search__filters--visible": this.state.clicked,
+      "search__filters--notVisible": !this.state.clicked
     } )
 
     return (

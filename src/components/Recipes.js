@@ -1,7 +1,7 @@
 import React from "react";
 import RecipeSearch from "./RecipeSearch";
 import RecipeResults from "./RecipeResults";
-import cx from "classnames";
+import Pagination from "./Pagination";
 
 class Recipes extends React.Component {
   constructor() {
@@ -14,11 +14,16 @@ class Recipes extends React.Component {
     this.receiveRemoveHealthFilter = this.receiveRemoveHealthFilter.bind(this);
     this.receiveRemoveDietFilter = this.receiveRemoveDietFilter.bind(this);
     this.receiveApplyFilters = this.receiveApplyFilters.bind(this);
+    this.receivePageNumber = this.receivePageNumber.bind(this);
     this.state = {
       searchTerm: "",
       healthFilterArray: [],
       dietFilterArray: [],
       recipeArray: [],
+      pageData: {
+        firstEntry: 0,
+        lastEntry: 10
+      },
       healthFilters: [
         { label: "Gluten free", apiTerm: "gluten-free" },
         { label: "Paleo", apiTerm: "paleo" },
@@ -36,8 +41,11 @@ class Recipes extends React.Component {
     fetch(url)
       .then(response => response.json())
       .then(body =>
-        this.setState({ recipeArray: body.count === 0 ? [] : body.hits }, () =>
-          console.log(this.state.recipeArray)
+        this.setState(
+          {
+            recipeArray: body.count === 0 ? [] : body.hits
+          },
+          () => console.log(body)
         )
       );
   }
@@ -97,6 +105,13 @@ class Recipes extends React.Component {
     }
   }
 
+  receivePageNumber(number) {
+    this.setState({
+      currentPage: number
+    })
+  }
+
+
   render() {
     return (
       <React.Fragment>
@@ -113,6 +128,11 @@ class Recipes extends React.Component {
           receiveApplyFilters={this.receiveApplyFilters}
         />
         <RecipeResults recipeArray={this.state.recipeArray} />
+        <Pagination
+          pageData={this.state.pageData}
+          currentPage={this.state.currentPage}
+          receivePageNumber={this.receivePageNumber}
+        />
       </React.Fragment>
     );
   }

@@ -27,14 +27,14 @@ class RecipeSearchFilters extends React.Component {
       <div className={this.props.classes}>
         <div className="recipe__search__filters">
           {this.props.healthFilters.map(item => (
-            <React.Fragment key={item.label}>
+            <div className="recipe__individual__filter" key={item.label}>
               <label>{item.label}</label> <input id={item.apiTerm} onClick={this.handleClick} className="search__filters__health__checkbox" type="checkbox" />
-            </React.Fragment>
+            </div>
           ))}
           {this.props.dietFilters.map(item => (
-            <React.Fragment key={item.label}>
+            <div className="recipe__individual__filter" key={item.label}>
               <label>{item.label}</label> <input id={item.apiTerm} onClick={this.handleClick} className="search__filters__diet__checkbox" type="checkbox" />
-            </React.Fragment>
+            </div>
           ))}
           <button onClick={this.handleClick} className="search__filters__apply">Apply Filters</button>
         </div>

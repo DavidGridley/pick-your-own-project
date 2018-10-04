@@ -1,11 +1,25 @@
 import React from "react";
+import cx from "classnames";
 
 class RecipeResultItem extends React.Component {
   constructor() {
     super();
+    this.handleClick = this.handleClick.bind(this);
+    this.state = { click: false };
+  }
+
+  handleClick() {
+    this.setState({
+      click: !this.state.click
+    });
   }
 
   render() {
+    const classes = cx("recipe__result__ingredients__list", {
+      "--show": this.state.click,
+      "--noShow": !this.state.click
+    });
+
     return (
       <div className="recipe__result__item">
         <img
@@ -17,10 +31,31 @@ class RecipeResultItem extends React.Component {
         </h2>
         <ul className="recipe__result__item__labels">
           {this.props.recipe.healthLabels.map(label => (
-            <li className="recipe__result__item__individual-label" key={label + this.props.recipe.label}>{label}</li>
+            <li
+              className="recipe__result__item__individual-label"
+              key={label + this.props.recipe.label}
+            >
+              {label}
+            </li>
           ))}
         </ul>
-        <a href={this.props.recipe.url}>
+        <button
+          onClick={this.handleClick}
+          className="recipe__result__ingredients__button"
+        >
+          Ingredients
+        </button>
+        <ul className={classes}>
+          {this.props.recipe.ingredientLines.map(ingredient => (
+            <li
+              className="recipe__result__ingredients__list"
+              key={ingredient + this.props.recipe.source}
+            >
+              {ingredient}
+            </li>
+          ))}
+        </ul>
+        <a className="recipe__result__item__link" href={this.props.recipe.url}>
           Full recipe available at: {this.props.recipe.source}
         </a>
       </div>
