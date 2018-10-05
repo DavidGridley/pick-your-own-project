@@ -2,6 +2,7 @@ import React from "react";
 import RecipeSearch from "./RecipeSearch";
 import RecipeResults from "./RecipeResults";
 import Pagination from "./Pagination";
+import RecipePageImages from "./RecipePageImages";
 
 class Recipes extends React.Component {
   constructor() {
@@ -138,6 +139,7 @@ class Recipes extends React.Component {
             receiveRemoveDietFilter={this.receiveRemoveDietFilter}
             receiveApplyFilters={this.receiveApplyFilters}
           />
+          <RecipePageImages recipeArray={this.state.recipeArray} />
           <RecipeResults recipeArray={this.state.recipeArray} />
         </div>
         <Pagination
