@@ -17,7 +17,6 @@ class RecipeSearchFilters extends React.Component {
         this.props.receiveRemoveDietFilter(event.target.id);
       } else if (event.target.className === "search__filters__apply") {
         this.props.receiveApplyFilters();
-        console.log("bang");
       }
   }
 

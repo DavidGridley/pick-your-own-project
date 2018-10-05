@@ -10,7 +10,6 @@ class Pagination extends React.Component {
   handleClick(event) {
       if (event.target.id === "pages__mobile__button") {
           this.props.receiveMoreResults();
-          console.log(this.props.recipeArray);
       }
   }
 

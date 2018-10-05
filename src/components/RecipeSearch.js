@@ -38,6 +38,9 @@ class RecipeSearch extends React.Component {
 
     return (
       <div className="recipe__search">
+      <button onClick={this.handleClick} className="search__filters__show">
+          Filters
+        </button>
         <form className="recipe__search__form" onSubmit={this.handleSubmit}>
           <input
             onChange={this.handleChange}
@@ -50,9 +53,6 @@ class RecipeSearch extends React.Component {
             Search
           </button>
         </form>
-        <button onClick={this.handleClick} className="search__filters__show">
-          Filters
-        </button>
         <RecipeSearchFilters
           healthFilters={this.props.healthFilters}
           dietFilters={this.props.dietFilters}

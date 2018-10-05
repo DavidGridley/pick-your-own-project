@@ -105,7 +105,6 @@ class Recipes extends React.Component {
 
   receiveApplyFilters() {
     if (this.state.searchTerm !== "") {
-      console.log("bang");
       this.receiveSubmit();
     }
   }

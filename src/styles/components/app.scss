@@ -63,11 +63,9 @@ body {
     &:hover {
       background-color: #7a9e7e;
     }
-    order: 1;
   }
 
   .recipe__search__input {
-    order: 2;
     text-align: center;
   }
 }
@@ -138,7 +136,6 @@ body {
     position: relative;
     align-content: center;
     justify-content: center;
-    border: 1px dashed #143642;
     border-radius: 6px;
     padding-top: 10px;
     padding-bottom: 10px;
@@ -248,13 +245,22 @@ body {
   }
 }
 
-.recipe__result__ingredients__list {
+.recipe__result__ingredients__list--show {
+  list-style: none;
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-content: center;
   padding-left: 10px;
   padding-bottom: 5px;
+  margin-top: 10px;
+  border: 1px dashed #143642;
+  border-radius: 6px;
+}
+
+.recipe__result__ingredients__list__item{
+  padding-bottom: 10px;
+  padding-right: 5px;
 }
 
 .--noShow {
@@ -263,6 +269,7 @@ body {
 
 .pages {
   margin-top: 30px;
+  margin-bottom: 30px;
   padding-top: 20px;
   width: 100vw;
   display: flex;
@@ -323,14 +330,15 @@ body {
       position: relative;
       align-content: center;
       justify-content: center;
-      border: 1px dashed #143642;
       border-radius: 6px;
       padding-top: 10px;
       padding-bottom: 10px;
       font-size: 0.6em;
       &:nth-child(2) {
-        width: 93%;
+        width: 80%;
         font-size: 1.5em;
+        justify-content: center;
+        margin-left: 8vw;
       }
     }
     .recipe__page__images__caption {
@@ -358,8 +366,8 @@ body {
     .recipe__result__item {
       align-self: flex-start;
       width: 40%;
-      margin-left: 10px;
-      margin-right: 10px;
+      margin-left: 50px;
+      margin-right: 50px;
     }
 
   }

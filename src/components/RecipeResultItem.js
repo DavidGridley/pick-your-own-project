@@ -16,7 +16,7 @@ class RecipeResultItem extends React.Component {
 
   render() {
     const classes = cx("recipe__result__ingredients__list", {
-      "--show": this.state.click,
+      "recipe__result__ingredients__list--show": this.state.click,
       "--noShow": !this.state.click
     });
 
@@ -48,7 +48,7 @@ class RecipeResultItem extends React.Component {
         <ul className={classes}>
           {this.props.recipe.ingredientLines.map(ingredient => (
             <li
-              className="recipe__result__ingredients__list"
+              className="recipe__result__ingredients__list__item"
               key={ingredient + this.props.recipe.source}
             >
               {ingredient}
