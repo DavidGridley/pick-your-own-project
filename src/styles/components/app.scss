@@ -24,6 +24,7 @@ body {
   justify-content: center;
   font-family: "Dancing Script", cursive;
   font-size: 5em;
+  cursor: pointer;
 }
 
 .header__sub-title {
@@ -63,6 +64,7 @@ body {
     &:hover {
       background-color: #7a9e7e;
     }
+    cursor: pointer;
   }
 
   .recipe__search__input {
@@ -77,6 +79,7 @@ body {
   &:hover {
     background-color: #7a9e7e;
   }
+  cursor: pointer;
 }
 
 .search__filters--visible {
@@ -140,32 +143,33 @@ body {
     padding-top: 10px;
     padding-bottom: 10px;
     &:hover {
-         opacity: 0.5;
-         transition: 0.5s
-       }
+      opacity: 0.5;
+      transition: 0.5s;
     }
+    cursor: pointer;
+  }
 
-    .recipe__page__images__image {
-      width: 90%;
-      display: flex;
-      align-self: center;
-    }
-    .recipe__page__images__caption {
-      position: absolute;
-      display: flex;
-      bottom: 7%;
-      left: 5%;
-      width: 100%;
-      font-size: 1.4em;
+  .recipe__page__images__image {
+    width: 90%;
+    display: flex;
+    align-self: center;
+  }
+  .recipe__page__images__caption {
+    position: absolute;
+    display: flex;
+    bottom: 7%;
+    left: 5%;
+    width: 100%;
+    font-size: 1.4em;
 
-      .recipe__page__images__span {
-        letter-spacing: -1px;
-        background: rgb(179, 239, 178); /* fallback color */
-        background: rgba(179, 239, 178, 0.7);
-        padding: 10px;
-      }
+    .recipe__page__images__span {
+      letter-spacing: -1px;
+      background: rgb(179, 239, 178); /* fallback color */
+      background: rgba(179, 239, 178, 0.7);
+      padding: 10px;
     }
   }
+}
 
 .recipe__page__images--notShowing {
   display: none;
@@ -243,6 +247,7 @@ body {
   &:hover {
     background-color: #7a9e7e;
   }
+  cursor: pointer;
 }
 
 .recipe__result__ingredients__list--show {
@@ -258,7 +263,7 @@ body {
   border-radius: 6px;
 }
 
-.recipe__result__ingredients__list__item{
+.recipe__result__ingredients__list__item {
   padding-bottom: 10px;
   padding-right: 5px;
 }
@@ -298,13 +303,10 @@ body {
 }
 
 @media (min-width: 768px) {
-
   .recipe__search__filters {
-  
     .recipe__individual__filter {
       font-size: 1.2em;
     }
-
   }
 
   .recipe__page__images--showing {
@@ -357,7 +359,6 @@ body {
     }
   }
 
-
   .recipe__results {
     display: flex;
     flex-direction: row;
@@ -369,7 +370,6 @@ body {
       margin-left: 50px;
       margin-right: 50px;
     }
-
   }
 }
 
@@ -378,14 +378,12 @@ body {
     font-size: 1.7em;
   }
 
-  .recipe__individual__filter{ 
+  .recipe__individual__filter {
     font-size: 1.5em;
   }
 
-  .search__filters__diet__checkbox
-  .search__filters__health__checkbox {
+  .search__filters__diet__checkbox .search__filters__health__checkbox {
     width: 20px;
     height: 20px;
   }
-
 }
