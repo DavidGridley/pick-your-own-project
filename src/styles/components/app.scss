@@ -32,11 +32,16 @@ body {
   font-size: 0.8em;
 }
 
+.recipe__content {
+  min-height: 65vh;
+}
+
 .recipe__search {
   display: flex;
   flex-direction: row;
   width: 100vw;
   position: relative;
+  flex-wrap: wrap;
 }
 
 .recipe__search__form {
@@ -69,7 +74,6 @@ body {
   display: flex;
   flex-direction: row;
   flex-wrap: wrap;
-  position: absolute;
   left: 0;
   top: 1.9em;
 }
@@ -104,6 +108,7 @@ body {
   flex-direction: column;
   justify-content: center;
   align-items: center;
+  flex: 1 0 auto;
 }
 
 .recipe__result__item {
@@ -189,14 +194,35 @@ body {
 }
 
 .pages {
+  margin-top: 30px;
+  padding-top: 20px;
   width: 100vw;
   display: flex;
   flex-direction: column;
   align-items: center;
   position: relative;
   bottom: 0;
+  flex-shrink: 0;
 }
+
+.pages__mobile__button--results {
+  display: flex;
+  background-color: #e8f1f2;
+  &:hover {
+    background-color: #7a9e7e;
+  }
+}
+
+.pages__mobile__button--noResults {
+  display: none;
+}
+
 
 .pages__tablet__desktop {
   display: none;
+}
+
+
+@media (min-width: 768px) {
+
 }

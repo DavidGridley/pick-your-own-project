@@ -14,7 +14,7 @@ class Recipes extends React.Component {
     this.receiveRemoveHealthFilter = this.receiveRemoveHealthFilter.bind(this);
     this.receiveRemoveDietFilter = this.receiveRemoveDietFilter.bind(this);
     this.receiveApplyFilters = this.receiveApplyFilters.bind(this);
-    this.receivePageNumber = this.receivePageNumber.bind(this);
+    this.receiveMoreResults = this.receiveMoreResults.bind(this);
     this.state = {
       searchTerm: "",
       healthFilterArray: [],
@@ -24,6 +24,7 @@ class Recipes extends React.Component {
         firstEntry: 0,
         lastEntry: 10
       },
+      totalResults: "",
       healthFilters: [
         { label: "Gluten free", apiTerm: "gluten-free" },
         { label: "Paleo", apiTerm: "paleo" },
@@ -43,9 +44,9 @@ class Recipes extends React.Component {
       .then(body =>
         this.setState(
           {
-            recipeArray: body.count === 0 ? [] : body.hits
+            recipeArray: body.count === 0 ? [] : body.hits,
+            totalResults: body.count
           },
-          () => console.log(body)
         )
       );
   }
@@ -66,7 +67,11 @@ class Recipes extends React.Component {
     this.fetchRecipes(
       `https://api.edamam.com/search?q=${
         this.state.searchTerm
-      }${healthFilters}${dietFilters}&app_id=80413428&app_key=00e1dca10b9bc769bff3c70b22b658fa`
+      }${healthFilters}${dietFilters}&from=${
+        this.state.pageData.firstEntry
+      }&to=${
+        this.state.pageData.lastEntry
+      }&app_id=80413428&app_key=00e1dca10b9bc769bff3c70b22b658fa`
     );
   }
 
@@ -105,33 +110,42 @@ class Recipes extends React.Component {
     }
   }
 
-  receivePageNumber(number) {
-    this.setState({
-      currentPage: number
-    })
+  receiveMoreResults() {
+    this.setState(
+      {
+        pageData: {
+          firstEntry: this.state.pageData.firstEntry,
+          lastEntry: this.state.pageData.lastEntry + 10
+        }
+      },
+      () => this.receiveSubmit()
+    );
   }
-
 
   render() {
     return (
       <React.Fragment>
-        <RecipeSearch
-          receiveSubmit={this.receiveSubmit}
-          receiveSearchTerm={this.receiveSearchTerm}
-          searchTerm={this.state.searchTerm}
-          healthFilters={this.state.healthFilters}
-          dietFilters={this.state.dietFilters}
-          receiveHealthFilters={this.receiveHealthFilters}
-          receiveDietFilters={this.receiveDietFilters}
-          receiveRemoveHealthFilter={this.receiveRemoveHealthFilter}
-          receiveRemoveDietFilter={this.receiveRemoveDietFilter}
-          receiveApplyFilters={this.receiveApplyFilters}
-        />
-        <RecipeResults recipeArray={this.state.recipeArray} />
+        <div className="recipe__content">
+          <RecipeSearch
+            receiveSubmit={this.receiveSubmit}
+            receiveSearchTerm={this.receiveSearchTerm}
+            searchTerm={this.state.searchTerm}
+            healthFilters={this.state.healthFilters}
+            dietFilters={this.state.dietFilters}
+            receiveHealthFilters={this.receiveHealthFilters}
+            receiveDietFilters={this.receiveDietFilters}
+            receiveRemoveHealthFilter={this.receiveRemoveHealthFilter}
+            receiveRemoveDietFilter={this.receiveRemoveDietFilter}
+            receiveApplyFilters={this.receiveApplyFilters}
+          />
+          <RecipeResults recipeArray={this.state.recipeArray} />
+        </div>
         <Pagination
           pageData={this.state.pageData}
           currentPage={this.state.currentPage}
-          receivePageNumber={this.receivePageNumber}
+          receiveMoreResults={this.receiveMoreResults}
+          recipeArray={this.state.recipeArray}
+          totalResults={this.state.totalResults}
         />
       </React.Fragment>
     );
