@@ -63,6 +63,12 @@ body {
     &:hover {
       background-color: #7a9e7e;
     }
+    order: 1;
+  }
+
+  .recipe__search__input {
+    order: 2;
+    text-align: center;
   }
 }
 
@@ -373,6 +379,5 @@ body {
     width: 20px;
     height: 20px;
   }
-
 
 }

@@ -25,6 +25,7 @@ class Recipes extends React.Component {
         firstEntry: 0,
         lastEntry: 10
       },
+      currentLastEntry: 10,
       totalResults: "",
       healthFilters: [
         { label: "Gluten free", apiTerm: "gluten-free" },
@@ -43,12 +44,10 @@ class Recipes extends React.Component {
     fetch(url)
       .then(response => response.json())
       .then(body =>
-        this.setState(
-          {
-            recipeArray: body.count === 0 ? [] : body.hits,
-            totalResults: body.count
-          },
-        )
+        this.setState({
+          recipeArray: body.count === 0 ? [] : body.hits,
+          totalResults: body.count
+        })
       );
   }
 
@@ -114,12 +113,25 @@ class Recipes extends React.Component {
   receiveMoreResults() {
     this.setState(
       {
-        pageData: {
-          firstEntry: this.state.pageData.firstEntry,
-          lastEntry: this.state.pageData.lastEntry + 10
-        }
+        currentLastEntry: this.state.currentLastEntry + 10
       },
-      () => this.receiveSubmit()
+      () => {
+        const healthFilters = this.state.healthFilterArray
+          .map(filter => `&health=${filter}`)
+          .join("");
+        const dietFilters = this.state.dietFilterArray
+          .map(filter => `&diet=${filter}`)
+          .join("");
+        this.fetchRecipes(
+          `https://api.edamam.com/search?q=${
+            this.state.searchTerm
+          }${healthFilters}${dietFilters}&from=${
+            this.state.pageData.firstEntry
+          }&to=${
+            this.state.currentLastEntry
+          }&app_id=80413428&app_key=00e1dca10b9bc769bff3c70b22b658fa`
+        );
+      }
     );
   }
 
