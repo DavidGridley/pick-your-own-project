@@ -5,105 +5,267 @@ exports[`App matches the snapshot 1`] = `
   className="app"
 >
   <div
-    className="recipe__search"
+    className="header"
   >
-    <form
-      className="recipe__search__form"
-      onSubmit={[Function]}
+    <h1
+      className="header__title"
+      onClick={[Function]}
     >
-      <input
-        className="recipe__search__input"
-        onChange={[Function]}
-        placeholder="Search for your meal"
-        type="text"
-        value=""
-      />
-      <button
-        className="recipe__search__button"
-        type="submit"
-      >
-        Search
-      </button>
-    </form>
-    <button
-      className="search__filters__show"
+      Nonna
+    </h1>
+    <h2
+      className="header__sub-title"
     >
-      Filters
-    </button>
-    <div
-      className="search__filters"
-    >
-      <div>
-        <label>
-          Gluten free
-        </label>
-         
-        <input
-          className="search__filters__health__checkbox"
-          id="gluten-free"
-          onClick={[Function]}
-          type="checkbox"
-        />
-        <label>
-          Paleo
-        </label>
-         
-        <input
-          className="search__filters__health__checkbox"
-          id="paleo"
-          onClick={[Function]}
-          type="checkbox"
-        />
-        <label>
-          Vegetarian
-        </label>
-         
-        <input
-          className="search__filters__health__checkbox"
-          id="vegetarian"
-          onClick={[Function]}
-          type="checkbox"
-        />
-        <label>
-          Vegan
-        </label>
-         
-        <input
-          className="search__filters__health__checkbox"
-          id="vegan"
-          onClick={[Function]}
-          type="checkbox"
-        />
-        <label>
-          Low carb
-        </label>
-         
-        <input
-          className="search__filters__diet__checkbox"
-          id="low-carb"
-          onClick={[Function]}
-          type="checkbox"
-        />
-        <label>
-          High protein
-        </label>
-         
-        <input
-          className="search__filters__diet__checkbox"
-          id="high-protein"
-          onClick={[Function]}
-          type="checkbox"
-        />
-        <button
-          className="search__filters__apply"
-        >
-          Apply Filters
-        </button>
-      </div>
-    </div>
+      A time honoured recipe collection
+    </h2>
   </div>
   <div
-    className="recipe__results"
-  />
+    className="recipe__content"
+  >
+    <div
+      className="recipe__search"
+    >
+      <button
+        className="search__filters__show"
+        onClick={[Function]}
+      >
+        Filters
+      </button>
+      <form
+        className="recipe__search__form"
+        onSubmit={[Function]}
+      >
+        <input
+          className="recipe__search__input"
+          onChange={[Function]}
+          placeholder="Search for your meal"
+          type="text"
+          value=""
+        />
+        <button
+          className="recipe__search__button"
+          type="submit"
+        >
+          Search
+        </button>
+      </form>
+      <div
+        className="search__filters search__filters--notVisible"
+      >
+        <div
+          className="recipe__search__filters"
+        >
+          <div
+            className="recipe__individual__filter"
+          >
+            <label>
+              Gluten free
+            </label>
+             
+            <input
+              className="search__filters__health__checkbox"
+              id="gluten-free"
+              onClick={[Function]}
+              type="checkbox"
+            />
+          </div>
+          <div
+            className="recipe__individual__filter"
+          >
+            <label>
+              Paleo
+            </label>
+             
+            <input
+              className="search__filters__health__checkbox"
+              id="paleo"
+              onClick={[Function]}
+              type="checkbox"
+            />
+          </div>
+          <div
+            className="recipe__individual__filter"
+          >
+            <label>
+              Vegetarian
+            </label>
+             
+            <input
+              className="search__filters__health__checkbox"
+              id="vegetarian"
+              onClick={[Function]}
+              type="checkbox"
+            />
+          </div>
+          <div
+            className="recipe__individual__filter"
+          >
+            <label>
+              Vegan
+            </label>
+             
+            <input
+              className="search__filters__health__checkbox"
+              id="vegan"
+              onClick={[Function]}
+              type="checkbox"
+            />
+          </div>
+          <div
+            className="recipe__individual__filter"
+          >
+            <label>
+              Low carb
+            </label>
+             
+            <input
+              className="search__filters__diet__checkbox"
+              id="low-carb"
+              onClick={[Function]}
+              type="checkbox"
+            />
+          </div>
+          <div
+            className="recipe__individual__filter"
+          >
+            <label>
+              High protein
+            </label>
+             
+            <input
+              className="search__filters__diet__checkbox"
+              id="high-protein"
+              onClick={[Function]}
+              type="checkbox"
+            />
+          </div>
+          <button
+            className="search__filters__apply"
+            onClick={[Function]}
+          >
+            Apply Filters
+          </button>
+        </div>
+      </div>
+    </div>
+    <div
+      className="recipe__page__images recipe__page__images--showing"
+    >
+      <h2
+        className="recipe__page__images__title"
+      >
+        Recent posts:
+      </h2>
+      <div
+        className="recipe__page__image__container"
+      >
+        <img
+          className="recipe__page__images__image"
+          src="/images/sander-dalhuisen-715511-unsplash.jpg"
+        />
+        <h4
+          className="recipe__page__images__caption"
+        >
+          <span
+            className="recipe__page__images__span"
+          >
+            How to present a meal like 
+            <br />
+             Gordon Ramsey is yelling at you
+          </span>
+        </h4>
+      </div>
+      <div
+        className="recipe__page__image__container"
+      >
+        <img
+          className="recipe__page__images__image"
+          src="/images/alyson-mcphee-499812-unsplash.jpg"
+        />
+        <h4
+          className="recipe__page__images__caption"
+        >
+          <span
+            className="recipe__page__images__span"
+          >
+            Chopping herbs: When, why, how?
+          </span>
+        </h4>
+      </div>
+      <div
+        className="recipe__page__image__container"
+      >
+        <img
+          className="recipe__page__images__image"
+          src="/images/rawpixel-752511-unsplash.jpg"
+        />
+        <h4
+          className="recipe__page__images__caption"
+        >
+          <span
+            className="recipe__page__images__span"
+          >
+            A journey of frustration, tears 
+            <br />
+             and betrayal with eggs
+          </span>
+        </h4>
+      </div>
+      <div
+        className="recipe__page__image__container"
+      >
+        <img
+          className="recipe__page__images__image"
+          src="/images/gianna-trewavas-641234-unsplash.jpg"
+        />
+        <h4
+          className="recipe__page__images__caption"
+        >
+          <span
+            className="recipe__page__images__span"
+          >
+            How to achieve your #breakfastgoals 
+            <br />
+             (and photograph them for maximum likes)
+          </span>
+        </h4>
+      </div>
+    </div>
+    <div
+      className="recipe__results"
+    />
+  </div>
+  <div
+    className="pages"
+  >
+    <div
+      className="pages__mobile"
+    >
+      <button
+        className="pages__mobile__button pages__mobile__button--noResults pages__mobile__button--results"
+        id="pages__mobile__button"
+        onClick={[Function]}
+      >
+        Show 10 more results
+      </button>
+    </div>
+    <div
+      className="pages__tablet__desktop"
+    >
+      <button
+        className="pages__previous__page"
+      >
+        ←
+      </button>
+      <p>
+         out of 
+      </p>
+      <button
+        className="pages__next__page"
+      >
+        →
+      </button>
+    </div>
+  </div>
 </div>
 `;

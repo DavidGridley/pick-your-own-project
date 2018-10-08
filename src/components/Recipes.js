@@ -26,7 +26,7 @@ class Recipes extends React.Component {
         lastEntry: 10
       },
       currentLastEntry: 10,
-      totalResults: "",
+      totalResults: 0,
       healthFilters: [
         { label: "Gluten free", apiTerm: "gluten-free" },
         { label: "Paleo", apiTerm: "paleo" },
@@ -155,7 +155,6 @@ class Recipes extends React.Component {
         </div>
         <Pagination
           pageData={this.state.pageData}
-          currentPage={this.state.currentPage}
           receiveMoreResults={this.receiveMoreResults}
           recipeArray={this.state.recipeArray}
           totalResults={this.state.totalResults}
